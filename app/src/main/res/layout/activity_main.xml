@@ -27,26 +27,41 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.285">
+
+        <TextView
+            android:id="@+id/textimg2"
+            android:layout_width="211dp"
+            android:layout_height="wrap_content"
+            android:background="#F02020"
+            android:text="Esto es otra orueba" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="211dp"
+            android:layout_height="204dp"
+            android:background="#F12020"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <LinearLayout
-            android:id="@+id/Post1"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#F3E7E7"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:background="#ECE8E8"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textImg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Esto es una planta con agua" />
+                android:text="Esto es una Imagen de Prueba" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="209dp"
+                android:layout_height="204dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
         </LinearLayout>
     </LinearLayout>
