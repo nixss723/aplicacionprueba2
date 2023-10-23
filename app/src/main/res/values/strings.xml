@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Application56</string>
     <string name="title">Hola</string>
-    <string name="HelloUser">HOLA USUARIO !</string>
-    <string name="newuserHello">Hola Matias!</string>
+    <string name="HelloUser">BIENVENIDO USUARIO !</string>
+    <string name="newuserHello">BIENVENIDO MATIAS!</string>
 
 </resources>
