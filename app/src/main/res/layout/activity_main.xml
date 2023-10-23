@@ -8,17 +8,27 @@
 
     <LinearLayout
         android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="2dp"
         android:background="#3BB6B6"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/content"
-        app:layout_constraintVertical_bias="0.508"></LinearLayout>
+        app:layout_constraintVertical_bias="0.508">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="BIENVENIDO A ADFP !"
+            android:textColor="#000000"
+            android:textSize="34sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/content"
@@ -38,7 +48,9 @@
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:background="#5C6BC0"
-            android:text="HOLA USUARIO !" />
+            android:text="@string/HelloUser"
+            android:textColor="#090909"
+            android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,18 +58,24 @@
             android:background="#ECE8E8"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textImg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Esto es una Imagen de Prueba" />
-
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="204dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:baselineAligned="false"
+            android:text="LOGIN"
+            android:textColor="#000000"
+            tools:backgroundTint="#EBE7E7" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
