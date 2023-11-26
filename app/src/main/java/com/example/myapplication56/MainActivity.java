@@ -1,11 +1,12 @@
 package com.example.myapplication56;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Lógica para la opción "CREAR PARTIDO"
+                Intent intent = new Intent(MainActivity.this, CrearPartidoActivity.class);
+                startActivity(intent);
             }
         });
 

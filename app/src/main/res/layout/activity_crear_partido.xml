@@ -1,0 +1,75 @@
+<!-- res/layout/activity_crear_partido.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".CrearPartidoActivity">
+
+    <TextView
+        android:id="@+id/textFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha del partido" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textFecha" />
+
+    <TextView
+        android:id="@+id/textTipoCancha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/datePicker"
+        android:layout_marginTop="16dp"
+        android:text="Tipo de cancha" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoCancha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textTipoCancha"
+        android:layout_marginTop="8dp"
+        android:entries="@array/tipos_cancha" />
+
+    <TextView
+        android:id="@+id/textHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerTipoCancha"
+        android:layout_marginTop="16dp"
+        android:text="Hora del partido" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textHora"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textUbicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timePicker"
+        android:layout_marginTop="16dp"
+        android:text="Ubicación del partido" />
+
+    <EditText
+        android:id="@+id/editUbicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textUbicacion"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnCrearPartido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editUbicacion"
+        android:layout_marginTop="24dp"
+        android:text="Crear Partido" />
+
+</RelativeLayout>

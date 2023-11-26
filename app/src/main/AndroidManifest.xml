@@ -25,5 +25,10 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
+        <activity
+            android:name=".CrearPartidoActivity"
+            android:exported="false">
+        </activity>
     </application>
 </manifest>
