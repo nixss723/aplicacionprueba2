@@ -1,81 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="2dp"
-        android:background="#3BB6B6"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/content"
-        app:layout_constraintVertical_bias="0.508">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="BIENVENIDO A ADFP !"
-            android:textColor="#000000"
-            android:textSize="34sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/content"
+    <!-- Toolbar (encabezado) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="680dp"
-        android:background="#C1CDCC"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintVertical_bias="0.285">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
 
-        <TextView
-            android:id="@+id/textimg2"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:background="#5C6BC0"
-            android:text="@string/HelloUser"
-            android:textColor="#090909"
-            android:textSize="24sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ECE8E8"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="204dp"
-                tools:srcCompat="@drawable/cancha" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button2"
+        <!-- Botón de hamburguesa -->
+        <ImageButton
+            android:id="@+id/btnHamburguesa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:baselineAligned="false"
-            android:text="LOGIN"
-            android:textColor="#000000"
-            tools:backgroundTint="#EBE7E7" />
+            android:src="@drawable/ic_menu"
+            android:contentDescription="Botón Hamburguesa" />
 
+        <!-- Nombre de la aplicación en el centro -->
+        <TextView
+            android:id="@+id/textNombreApp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre de tu App"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Fondo de la pantalla (imagen de cancha de fútbol) -->
+    <ImageView
+        android:id="@+id/imageCancha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cancha_futbol" /> <!-- Reemplaza con el recurso de tu imagen de cancha -->
+
+    <!-- Layout para mostrar el saludo "HOLA *nombre del usuario*" -->
+    <LinearLayout
+        android:id="@+id/layoutSaludo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textHolaUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOLA *nombre del usuario*"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Puedes personalizar el diseño según tus necesidades -->
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Layout para las opciones "CREAR PARTIDO" y "VER PARTIDOS" -->
+    <LinearLayout
+        android:id="@+id/layoutOpciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <!-- Opción "CREAR PARTIDO" -->
+        <Button
+            android:id="@+id/btnCrearPartido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CREAR PARTIDO"
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50" /> <!-- Puedes cambiar el color según tus preferencias -->
+
+        <!-- Opción "VER PARTIDOS" -->
+        <Button
+            android:id="@+id/btnVerPartidos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="VER PARTIDOS"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3" /> <!-- Puedes cambiar el color según tus preferencias -->
+
+        <!-- Puedes agregar más opciones según tus necesidades -->
+    </LinearLayout>
+
+</RelativeLayout>

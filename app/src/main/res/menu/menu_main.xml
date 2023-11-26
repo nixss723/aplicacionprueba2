@@ -1,0 +1,19 @@
+<!-- res/menu/menu_main.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_notificaciones"
+        android:title="Notificaciones"
+        android:icon="@drawable/ic_notificaciones" />
+    <item
+        android:id="@+id/action_shop"
+        android:title="Shop"
+        android:icon="@drawable/ic_shop" />
+    <item
+        android:id="@+id/action_amigos"
+        android:title="Amigos"
+        android:icon="@drawable/ic_amigos" />
+    <item
+        android:id="@+id/action_ajustes"
+        android:title="Ajustes"
+        android:icon="@drawable/ic_ajustes" />
+</menu>
