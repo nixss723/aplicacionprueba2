@@ -14,8 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         // Ejemplo: Obtener el nombre del usuario (reemplaza esto con tu lógica de autenticación)
         String nombreUsuario = "Juan"; // Aquí debes obtener el nombre del usuario autenticado
