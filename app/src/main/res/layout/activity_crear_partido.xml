@@ -10,7 +10,7 @@
         android:id="@+id/textFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha del partido" />
+        android:text="Fecha del partido :" />
 
     <DatePicker
         android:id="@+id/datePicker"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/datePicker"
         android:layout_marginTop="16dp"
-        android:text="Tipo de cancha" />
+        android:text="Tipo de cancha :" />
 
     <Spinner
         android:id="@+id/spinnerTipoCancha"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/timePicker"
         android:layout_marginTop="16dp"
-        android:text="Ubicación del partido" />
+        android:text="Ubicación del partido :" />
 
     <EditText
         android:id="@+id/editUbicacion"

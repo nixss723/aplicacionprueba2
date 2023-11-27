@@ -18,26 +18,25 @@ public class CrearPartidoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_partido);
 
-        // Obtener referencias a los elementos de la interfaz de usuario
+
         DatePicker datePicker = findViewById(R.id.datePicker);
         Spinner spinnerTipoCancha = findViewById(R.id.spinnerTipoCancha);
         TimePicker timePicker = findViewById(R.id.timePicker);
         EditText editUbicacion = findViewById(R.id.editUbicacion);
         Button btnCrearPartido = findViewById(R.id.btnCrearPartido);
 
-        // Manejar clics en el botón "Crear Partido"
+
         btnCrearPartido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Obtener los valores de los campos del formulario
+
                 String fechaPartido = datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear();
                 String tipoCancha = spinnerTipoCancha.getSelectedItem().toString();
                 String horaPartido = timePicker.getHour() + ":" + timePicker.getMinute();
                 String ubicacionPartido = editUbicacion.getText().toString();
 
-                // Aquí puedes realizar la lógica para guardar los datos del partido
-                // Por ahora, simplemente mostramos los valores en un Toast como ejemplo
-                mostrarMensaje("Fecha: " + fechaPartido + "\nTipo de Cancha: " + tipoCancha + "\nHora: " + horaPartido + "\nUbicación: " + ubicacionPartido);
+
+                mostrarMensaje("Partido creado con Exito! ");
             }
         });
     }
