@@ -30,5 +30,10 @@
             android:name=".CrearPartidoActivity"
             android:exported="false">
         </activity>
+
+        <activity
+            android:name=".ListarPartidosActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
     </application>
 </manifest>

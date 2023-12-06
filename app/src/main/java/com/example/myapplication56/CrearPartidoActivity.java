@@ -1,4 +1,6 @@
 package com.example.myapplication56;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,25 +9,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.appcompat.app.AppCompatActivity;
 
-// ...
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CrearPartidoActivity extends AppCompatActivity {
 
-    private DatabaseHelper dbHelper;
-    private void mostrarMensaje(String mensaje) {
-        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
-    }
+    private PartidoRepository partidoRepository;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_partido);
 
-        dbHelper = new DatabaseHelper(this);
+        partidoRepository = new PartidoRepository(this);
         DatePicker datePicker = findViewById(R.id.datePicker);
         Spinner spinnerTipoCancha = findViewById(R.id.spinnerTipoCancha);
         TimePicker timePicker = findViewById(R.id.timePicker);
@@ -33,7 +31,6 @@ public class CrearPartidoActivity extends AppCompatActivity {
         Button btnCrearPartido = findViewById(R.id.btnCrearPartido);
 
 
-        // ...
         btnCrearPartido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,30 +39,19 @@ public class CrearPartidoActivity extends AppCompatActivity {
                 String horaPartido = timePicker.getHour() + ":" + timePicker.getMinute();
                 String ubicacionPartido = editUbicacion.getText().toString();
 
-                // Insertar datos en la base de datos
-                insertarPartido(fechaPartido, tipoCancha, horaPartido, ubicacionPartido);
+                // Insertar datos en la base de datos usando el repositorio
+                partidoRepository.insertarPartido(fechaPartido, tipoCancha, horaPartido, ubicacionPartido);
 
                 mostrarMensaje("Partido creado con Éxito! ");
+
+                // Abrir la actividad ListarPartidosActivity
+                Intent intent = new Intent(CrearPartidoActivity.this, ListarPartidosActivity.class);
+                startActivity(intent);
             }
         });
-
-        // ...
     }
 
-    private void insertarPartido(String fecha, String tipoCancha, String hora, String ubicacion) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(DatabaseHelper.COLUMN_FECHA, fecha);
-        values.put(DatabaseHelper.COLUMN_TIPO_CANCHA, tipoCancha);
-        values.put(DatabaseHelper.COLUMN_HORA, hora);
-        values.put(DatabaseHelper.COLUMN_UBICACION, ubicacion);
-
-        db.insert(DatabaseHelper.TABLE_PARTIDOS, null, values);
-
-        db.close();
+    private void mostrarMensaje(String mensaje) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
     }
-
-    // ...
 }
-

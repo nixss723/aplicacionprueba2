@@ -31,23 +31,24 @@ public class PartidoRepository {
 
         public Cursor obtenerTodosLosPartidos() {
             SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+            // Columnas que se recuperarán
             String[] columnas = {
+                    DatabaseHelper.COLUMN_ID,  // Asegúrate de incluir la columna _id
                     DatabaseHelper.COLUMN_FECHA,
                     DatabaseHelper.COLUMN_TIPO_CANCHA,
                     DatabaseHelper.COLUMN_HORA,
                     DatabaseHelper.COLUMN_UBICACION
             };
 
-            return db.query(
-                    DatabaseHelper.TABLE_PARTIDOS,
-                    columnas,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
-            );
+            // Realizar la consulta a la base de datos
+            return db.query(DatabaseHelper.TABLE_PARTIDOS, columnas, null, null, null, null, null);
         }
-    }
+
+
+
+
+        }
+
 
 
