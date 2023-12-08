@@ -54,23 +54,11 @@
 
     <LinearLayout
         android:id="@+id/layoutSaludo"
-        android:layout_width="match_parent"
+        android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textHolaUsuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HOLA *nombre del usuario*"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
+        android:orientation="vertical"/>
 
 
     <LinearLayout
@@ -159,6 +147,19 @@
         android:layout_height="0dp"
         app:srcCompat="@android:drawable/ic_menu_edit"
         tools:visibility="invisible" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:onClick="logout"
+        android:text="Button"
+        android:visibility="visible"
+        tools:backgroundTint="#C1C0C0"
+        tools:text="Logout" />
 
 
 </RelativeLayout>

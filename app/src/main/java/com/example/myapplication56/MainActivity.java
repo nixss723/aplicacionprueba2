@@ -15,16 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-        // NO ESTA CREADA LA LOGICA DEL LOGIN
-        String nombreUsuario = "Juan";
-
-
-        TextView textHolaUsuario = findViewById(R.id.textHolaUsuario);
-        textHolaUsuario.setText("HOLA " + nombreUsuario);
-
-
         Button btnCrearPartido = findViewById(R.id.btnCrearPartido);
         Button btnVerPartidos = findViewById(R.id.btnVerPartidos);
 
