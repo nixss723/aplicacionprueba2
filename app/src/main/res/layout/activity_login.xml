@@ -32,5 +32,20 @@
         android:onClick="onLogin"
         android:text="Login" />
 
+    <Button
+        android:id="@+id/Signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Login"
+        android:onClick="onSignIn"
+        android:text="Sign Up" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="385dp"
+        android:layout_height="217dp"
+        android:layout_below="@id/Signup"
+        android:text="Si no se encuentra registrado en la aplicacion, complete los campos y seleccione el boton &quot;Sign Up&quot; para que sea registrado en la aplicacion." />
+
 
 </RelativeLayout>

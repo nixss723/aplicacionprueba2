@@ -18,34 +18,53 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    public void login (String email, String password){
+
+    public void signIn(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Registro exitoso, puedes hacer algo si es necesario
+                            Toast.makeText(LoginActivity.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Si el registro falla, muestra un mensaje al usuario.
+                            Log.w("TAG", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Error al registrar usuario.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // Inicio de sesión exitoso, actualiza la interfaz de usuario con la información del usuario autenticado
                             Log.d("TAG", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                         } else {
-                            // If sign in fails, display a message to the user.
+                            // Si el inicio de sesión falla, muestra un mensaje al usuario.
                             Log.w("TAG", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Error al iniciar sesión.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
-@Override
-protected void onCreate (Bundle savedInstanceState){
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_login);
-    mAuth = FirebaseAuth.getInstance();
-}
-    public void onLogin(View v){
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void onLogin(View v) {
         EditText email = findViewById(R.id.email);
         EditText contrasenia = findViewById(R.id.contrasenia);
 
@@ -57,4 +76,16 @@ protected void onCreate (Bundle savedInstanceState){
 
         this.login(emailString, passString);
     }
+
+    public void onSignIn(View v) {
+        EditText email = findViewById(R.id.email);
+        EditText contrasenia = findViewById(R.id.contrasenia);
+
+        String emailString = email.getText().toString();
+        String passString = contrasenia.getText().toString();
+
+        this.signIn(emailString, passString);
+    }
 }
+
+
