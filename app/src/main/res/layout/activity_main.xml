@@ -109,8 +109,8 @@
             android:layout_weight="0"
             android:backgroundTint="#FEFEFE"
             android:text="Enviar Correo"
-            android:tint="#1C1B1B"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            app:tint="#1C1B1B" />
 
         <TextView
             android:id="@+id/support"
@@ -129,8 +129,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:backgroundTint="#FDFDFD"
-            android:tint="#00040404"
-            app:srcCompat="@android:drawable/ic_menu_share" />
+            app:srcCompat="@android:drawable/ic_menu_share"
+            app:tint="#00040404" />
 
         <TextView
             android:id="@+id/compartir"
@@ -156,7 +156,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp"
         android:onClick="logout"
-        android:text="Button"
+        android:text="Cerar sesion"
         android:visibility="visible"
         tools:backgroundTint="#C1C0C0"
         tools:text="Logout" />

@@ -79,6 +79,12 @@
                 android:layout_height="wrap_content"
                 android:text="Crear Partido" />
 
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Volver" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

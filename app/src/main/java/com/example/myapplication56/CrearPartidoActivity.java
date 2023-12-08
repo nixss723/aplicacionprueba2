@@ -29,6 +29,7 @@ public class CrearPartidoActivity extends AppCompatActivity {
         TimePicker timePicker = findViewById(R.id.timePicker);
         EditText editUbicacion = findViewById(R.id.editUbicacion);
         Button btnCrearPartido = findViewById(R.id.btnCrearPartido);
+        Button btnVolver = findViewById(R.id.btnVolver);
 
 
         btnCrearPartido.setOnClickListener(new View.OnClickListener() {
@@ -45,11 +46,22 @@ public class CrearPartidoActivity extends AppCompatActivity {
                 mostrarMensaje("Partido creado con Éxito! ");
 
                 // Abrir la actividad ListarPartidosActivity
-                Intent intent = new Intent(CrearPartidoActivity.this, ListarPartidosActivity.class);
+
+            }
+        });
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Volver al MainActivity
+                Intent intent = new Intent(CrearPartidoActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
+
+
     }
+
+
 
     private void mostrarMensaje(String mensaje) {
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();

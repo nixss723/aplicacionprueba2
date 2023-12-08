@@ -4,11 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-
 public class MainActivity extends AppCompatActivity {
+
+    private PartidoRepository partidoRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +24,11 @@ public class MainActivity extends AppCompatActivity {
         Button btnCrearPartido = findViewById(R.id.btnCrearPartido);
         Button btnVerPartidos = findViewById(R.id.btnVerPartidos);
 
-
+        partidoRepository = new PartidoRepository(this);
 
         btnCrearPartido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(MainActivity.this, CrearPartidoActivity.class);
                 startActivity(intent);
             }
@@ -32,7 +37,14 @@ public class MainActivity extends AppCompatActivity {
         btnVerPartidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Lógica para la opción "VER PARTIDOS"
+                // Aquí se coloca la lógica para la opción "VER PARTIDOS"
+                // Puedes abrir la actividad ListarPartidosActivity o realizar otra acción
+                // según tus necesidades.
+
+                // Por ejemplo, abrir la actividad ListarPartidosActivity
+                Intent intent = new Intent(MainActivity.this, ListarPartidosActivity.class);
+                startActivity(intent);
+
             }
         });
     }
