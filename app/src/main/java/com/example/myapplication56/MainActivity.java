@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnCrearPartido = findViewById(R.id.btnCrearPartido);
         Button btnVerPartidos = findViewById(R.id.btnVerPartidos);
+        Button btnCerrarSesion = findViewById(R.id.button2);
 
         partidoRepository = new PartidoRepository(this);
 
@@ -33,15 +34,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         btnVerPartidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Aquí se coloca la lógica para la opción "VER PARTIDOS"
-                // Puedes abrir la actividad ListarPartidosActivity o realizar otra acción
-                // según tus necesidades.
 
-                // Por ejemplo, abrir la actividad ListarPartidosActivity
                 Intent intent = new Intent(MainActivity.this, ListarPartidosActivity.class);
                 startActivity(intent);
 

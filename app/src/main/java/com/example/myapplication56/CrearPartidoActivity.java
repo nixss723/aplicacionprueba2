@@ -40,19 +40,16 @@ public class CrearPartidoActivity extends AppCompatActivity {
                 String horaPartido = timePicker.getHour() + ":" + timePicker.getMinute();
                 String ubicacionPartido = editUbicacion.getText().toString();
 
-                // Insertar datos en la base de datos usando el repositorio
                 partidoRepository.insertarPartido(fechaPartido, tipoCancha, horaPartido, ubicacionPartido);
 
                 mostrarMensaje("Partido creado con Éxito! ");
 
-                // Abrir la actividad ListarPartidosActivity
 
             }
         });
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Volver al MainActivity
                 Intent intent = new Intent(CrearPartidoActivity.this, MainActivity.class);
                 startActivity(intent);
             }

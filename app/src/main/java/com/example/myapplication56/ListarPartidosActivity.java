@@ -1,17 +1,18 @@
 package com.example.myapplication56;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListarPartidosActivity extends AppCompatActivity {
 
     private PartidoRepository partidoRepository;
-    private Cursor cursor; // Añade esta variable de instancia
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,14 +21,22 @@ public class ListarPartidosActivity extends AppCompatActivity {
 
         partidoRepository = new PartidoRepository(this);
 
-        // Obtener todos los partidos y mostrarlos en un ListView
         mostrarPartidos();
+
+        Button btnVolverList = findViewById(R.id.btnVolverList);
+        btnVolverList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Volver al MainActivity
+                Intent intent = new Intent(ListarPartidosActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void mostrarPartidos() {
         cursor = partidoRepository.obtenerTodosLosPartidos();
 
-        // Configurar el adaptador para el ListView
         String[] fromColumns = {
                 DatabaseHelper.COLUMN_FECHA,
                 DatabaseHelper.COLUMN_TIPO_CANCHA,
@@ -35,16 +44,22 @@ public class ListarPartidosActivity extends AppCompatActivity {
                 DatabaseHelper.COLUMN_UBICACION
         };
 
+        int[] toViews = {
+                R.id.textFecha,
+                R.id.textTipoCancha,
+                R.id.textHora,
+                R.id.textUbicacion
+        };
+
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 this,
                 R.layout.item_partido,
                 cursor,
                 fromColumns,
-                new int[]{R.id.textFecha, R.id.textTipoCancha, R.id.textHora, R.id.textUbicacion},
+                toViews,
                 0
         );
 
-        // Configurar el ListView
         ListView listView = findViewById(R.id.listViewPartidos);
         listView.setAdapter(adapter);
     }
@@ -52,10 +67,8 @@ public class ListarPartidosActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Cierra el cursor cuando la actividad está siendo destruida
         if (cursor != null && !cursor.isClosed()) {
             cursor.close();
         }
     }
 }
-
