@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnVerPartidos = findViewById(R.id.btnVerPartidos);
         Button btnCerrarSesion = findViewById(R.id.button2);
 
+
         partidoRepository = new PartidoRepository(this);
 
         btnCrearPartido.setOnClickListener(new View.OnClickListener() {
@@ -53,5 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void onVerUsuariosClick(View view) {
+        // Abrir VerUsuariosActivity
+        Intent intent = new Intent(this, VerUsuariosActivity.class);
+        startActivity(intent);
     }
 }

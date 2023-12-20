@@ -1,0 +1,40 @@
+<!-- activity_ver_usuarios.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".VerUsuariosActivity">
+
+
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+
+    <Button
+        android:id="@+id/btnVerUsuarios"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#2196F3"
+        android:text="VER Usuarios"
+        android:textColor="#FFFFFF"
+        android:onClick="onVerUsuariosClick"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnVerUsuarios"
+        android:layout_marginTop="-161dp"
+        android:gravity="center"
+        android:text="Volver" />
+
+</RelativeLayout>
