@@ -1,3 +1,4 @@
+
 package com.example.myapplication56;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
 
 public class ListarPartidosActivity extends AppCompatActivity {
 
@@ -33,6 +35,7 @@ public class ListarPartidosActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void mostrarPartidos() {
         cursor = partidoRepository.obtenerTodosLosPartidos();
@@ -63,6 +66,33 @@ public class ListarPartidosActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listViewPartidos);
         listView.setAdapter(adapter);
     }
+
+    public void eliminarPartido(View view) {
+
+        int idDelPartido = obtenerIdPartidoDesdeCursor(view);
+
+        if (idDelPartido != -1) {
+            partidoRepository.eliminarPartido(idDelPartido);
+
+            mostrarPartidos();
+        }
+    }
+
+
+    private int obtenerIdPartidoDesdeCursor(View view) {
+       int columnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_ID);
+
+        if (columnIndex != -1) {
+            int position = ((ListView) findViewById(R.id.listViewPartidos)).getPositionForView(view);
+
+            if (cursor.moveToPosition(position)) {
+                return cursor.getInt(columnIndex);
+            }
+        }
+
+        return -1;
+    }
+
 
     @Override
     protected void onDestroy() {
