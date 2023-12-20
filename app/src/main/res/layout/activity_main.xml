@@ -87,16 +87,16 @@
             android:background="#2196F3"
             android:text="VER PARTIDOS"
             android:textColor="#FFFFFF" />
+
         <Button
             android:id="@+id/btnVerUsuarios"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#2196F3"
-            android:text="VER Usuarios"
-            android:textColor="#FFFFFF"
             android:onClick="onVerUsuariosClick"
-            />
+            android:text="VER Perfil"
+            android:textColor="#FFFFFF" />
 
 
     </LinearLayout>
